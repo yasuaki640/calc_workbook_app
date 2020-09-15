@@ -7,6 +7,13 @@ import (
 	"net/http"
 )
 
+type Human struct {
+	gorm.Model
+	Name string
+	sex bool
+	Status string
+}
+
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
