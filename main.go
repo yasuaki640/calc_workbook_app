@@ -14,6 +14,15 @@ type Human struct {
 	Status string
 }
 
+func intDb()  {
+	db, err := gorm.Open("sqlite3","sqlite.main")
+	if err != nil {
+		panic("Failed to Open DB.")
+	}
+	db.AutoMigrate(&Human{})
+	defer db.Close()
+}
+
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
