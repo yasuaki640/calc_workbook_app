@@ -10,7 +10,7 @@ import (
 type Human struct {
 	gorm.Model
 	Name string
-	sex bool
+	sex byte
 	Status string
 }
 
