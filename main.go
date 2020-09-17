@@ -7,12 +7,6 @@ import (
 	"net/http"
 )
 
-type Human struct {
-	gorm.Model
-	Name   string
-	Sex    byte
-	Status string
-}
 
 func intDb() {
 	db, err := gorm.Open("sqlite3", "sqlite.main")
