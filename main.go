@@ -10,11 +10,11 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.LoadHTMLGlob("templates/*")
-	router.GET("/index", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.tmpl", gin.H{
-			"title": "こんにちは Gin",
-		})
-	})
+
+	humanRouter := router.Group("/human")
+	{
+		humanRouter.POST("post", controller.HumanAdd)
+	}
+
 	router.Run(":8000")
 }
