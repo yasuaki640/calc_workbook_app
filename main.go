@@ -10,7 +10,7 @@ func main() {
 
 	humanRouter := router.Group("/human")
 	{
-
+		humanRouter.POST("post", controller.HumanAdd)
 	}
 
 	router.Run(":8000")
