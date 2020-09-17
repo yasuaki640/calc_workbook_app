@@ -9,13 +9,13 @@ import (
 
 type Human struct {
 	gorm.Model
-	Name string
-	sex byte
+	Name   string
+	Sex    byte
 	Status string
 }
 
-func intDb()  {
-	db, err := gorm.Open("sqlite3","sqlite.main")
+func intDb() {
+	db, err := gorm.Open("sqlite3", "sqlite.main")
 	if err != nil {
 		panic("Failed to Open DB.")
 	}
