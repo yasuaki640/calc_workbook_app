@@ -11,4 +11,5 @@ func init() {
 	if err != nil {
 		panic("Failed to connect database.")
 	}
+
 }
