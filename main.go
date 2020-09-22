@@ -3,10 +3,8 @@ package main
 import (
 	"./controller"
 	"github.com/gin-gonic/gin"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/jinzhu/gorm"
 )
-
-
 
 func main() {
 	router := gin.Default()
@@ -17,4 +15,5 @@ func main() {
 	}
 
 	router.Run(":8000")
+
 }
