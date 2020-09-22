@@ -1,9 +1,7 @@
 package model
 
 import (
-	"database/sql"
-	"gorm.io/gorm"
-	"time"
+	"github.com/jinzhu/gorm"
 )
 
 type Human struct {
@@ -11,7 +9,4 @@ type Human struct {
 	Name      string
 	Sex       byte
 	Status    string
-	CreatedAt time.Time
-	UpdateAt  time.Time
-	DeletedAt sql.NullTime
 }
