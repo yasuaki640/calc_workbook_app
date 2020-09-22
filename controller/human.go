@@ -1,9 +1,10 @@
 package controller
 
 import (
-	"github.com/gin-gonic/gin"
-	"net/http"
 	"../model"
+	"github.com/gin-gonic/gin"
+	_ "github.com/jinzhu/gorm"
+	"net/http"
 )
 
 func HumanAdd(c *gin.Context)  {
