@@ -2,13 +2,13 @@ package service
 
 import (
 	"../model"
-	"gorm.io/driver/sqlite"
-	"gorm.io/gorm"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
 
 func init() {
-	dsn := "sqlite.db"
-	db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
+	dsn := "./sqlite3/db/sqlite3"
+	db, err := gorm.Open("sqlite3", dsn)
 	if err != nil {
 	}
 
