@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/yasuaki640/go-crud/model"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"github.com/yasuaki640/go-crud/model"
 )
 
 func init() {
