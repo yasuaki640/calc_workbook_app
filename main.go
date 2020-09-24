@@ -1,7 +1,7 @@
 package main
 
 import (
-	"go-crud/controller"
+	"github.com/yasuaki640/go-crud/controller"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm"
 )
