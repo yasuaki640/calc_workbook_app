@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"github.com/yasuaki640/go-crud/model"
 	"github.com/gin-gonic/gin"
 	_ "github.com/jinzhu/gorm"
+	"github.com/yasuaki640/go-crud/model"
 	"net/http"
 )
 
