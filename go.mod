@@ -1,4 +1,4 @@
-module go-crud
+module github.com/yasuaki640/go-crud
 
 go 1.15
 
