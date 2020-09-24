@@ -1,7 +1,7 @@
 package service
 
 import (
-	"../model"
+	"github.com/yasuaki640/go-crud/model"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
