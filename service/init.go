@@ -10,6 +10,7 @@ func Init() {
 	dsn := "sqlite3/db.sqlite3"
 	db, err := gorm.Open("sqlite3", dsn)
 	if err != nil {
+		panic(err)
 	}
 
 	db.AutoMigrate(&model.Human{})
