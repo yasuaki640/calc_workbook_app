@@ -6,8 +6,8 @@ import (
 	"github.com/yasuaki640/go-crud/model"
 )
 
-func init() {
 	dsn := "./sqlite3/db/sqlite3"
+func Init() {
 	db, err := gorm.Open("sqlite3", dsn)
 	if err != nil {
 	}
