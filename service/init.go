@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/yasuaki640/go-crud/model"
+	. "github.com/yasuaki640/go-crud/model"
 	"gorm.io/driver/sqlite"
 	_ "gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -14,7 +14,7 @@ func Init() {
 		panic(err)
 	}
 
-	err = db.AutoMigrate(&model.Human{})
+	err = db.AutoMigrate(&Human{})
 	if err != nil {
 		panic(err)
 	}
