@@ -6,9 +6,9 @@ import (
 
 type Human struct {
 	gorm.Model
-	Name      string
-	Sex       byte
-	Status    string
+	Name   string
+	Sex    byte
+	Status string
 }
 
 func (Human) TableName() string {
