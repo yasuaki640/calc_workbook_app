@@ -14,6 +14,8 @@ func Init() {
 		panic(err)
 	}
 
-	db.AutoMigrate(&model.Human{})
-
+	err = db.AutoMigrate(&model.Human{})
+	if err != nil {
+		panic(err)
+	}
 }
