@@ -10,3 +10,7 @@ type Human struct {
 	Sex       byte
 	Status    string
 }
+
+func (Human) TableName() string {
+	return "humans"
+}
