@@ -15,5 +15,7 @@ func Init() {
 	}
 
 	db.AutoMigrate(&Human{})
-	
+
+	human1 := Human{Name: "Humika Baba", Sex: 2, Status: "In relationship"}
+	db.Create(&human1)
 }
