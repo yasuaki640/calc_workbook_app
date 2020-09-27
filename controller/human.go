@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func HumanAdd(c *gin.Context) {
+func HumanList(c *gin.Context) {
 	human := model.Human{}
 	err := c.Bind(&human)
 	if err != nil {
