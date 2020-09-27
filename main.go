@@ -10,9 +10,9 @@ func main() {
 	service.Init()
 	router := gin.Default()
 
-	humanRouter := router.Group("/human")
+	v1 := router.Group("/human/v1")
 	{
-		humanRouter.POST("/add", controller.HumanAdd)
+		v1.GET("/list", controller.HumanList)
 	}
 
 	router.Run(":8000")
