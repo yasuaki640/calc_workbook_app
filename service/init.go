@@ -1,16 +1,15 @@
 package service
 
 import (
-	. "github.com/yasuaki640/go-crud/model"
 	"gorm.io/driver/sqlite"
-	_ "gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
-func Init() {
+func Init() *gorm.DB {
 	dsn := "sqlite3/db.sqlite3"
 	db, err := gorm.Open(sqlite.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}
+	return db
 }
