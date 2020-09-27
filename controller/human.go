@@ -2,15 +2,15 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/yasuaki640/go-crud/model"
+	"github.com/yasuaki640/go-crud/service"
 	"net/http"
 )
 
 func HumanList(c *gin.Context) {
-	human := model.Human{}
-	err := c.Bind(&human)
-	if err != nil {
-		c.String(http.StatusBadRequest, "Bad request")
-		return
-	}
+	humanService := service.HumanService{}
+	humanList := humanService.GetHumans()
+	c.JSONP(http.StatusOK, gin.H{
+		"message":   "success get all humans",
+		"humanList": humanList,
+	})
 }
