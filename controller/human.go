@@ -9,8 +9,9 @@ import (
 func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
 	humanList := humanService.GetHumans()
-	c.JSONP(http.StatusOK, gin.H{
-		"message":   "success get all humans",
+	c.HTML(http.StatusOK, "index.tmpl", gin.H{
+		"message":   "success",
 		"humanList": humanList,
-	})
+	},
+	)
 }
