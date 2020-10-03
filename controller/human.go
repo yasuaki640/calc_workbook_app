@@ -15,3 +15,6 @@ func HumanList(c *gin.Context) {
 	})
 
 }
+
+func HumanAdd(c *gin.Context) {
+}
