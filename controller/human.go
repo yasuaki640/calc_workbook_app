@@ -24,4 +24,5 @@ func HumanAdd(c *gin.Context) {
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
+	humanService := service.HumanService{}
 }
