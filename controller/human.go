@@ -21,7 +21,7 @@ func HumanAdd(c *gin.Context) {
 	human := model.Human{}
 	err := c.Bind(&human)
 	if err != nil {
-		c.AbortWithStatus(http.StatusInternalServerError)
+		c.AbortWithStatus(http.StatusBadRequest)
 		return
 	}
 	humanService := service.HumanService{}
