@@ -16,4 +16,5 @@ func (HumanService) GetHumans() []model.Human {
 }
 
 func (HumanService) InsertHuman(human *model.Human) {
+	db := InitDB()
 }
