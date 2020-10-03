@@ -6,8 +6,6 @@ import (
 
 type HumanService struct{}
 
-
-
 func (HumanService) GetHumans() []model.Human {
 	db := InitDB()
 	humans := make([]model.Human, 0)
