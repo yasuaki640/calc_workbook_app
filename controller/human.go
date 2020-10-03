@@ -25,4 +25,5 @@ func HumanAdd(c *gin.Context) {
 		return
 	}
 	humanService := service.HumanService{}
+	humanService.InsertHuman(&human)
 }

@@ -14,3 +14,6 @@ func (HumanService) GetHumans() []model.Human {
 	db.Find(&humans)
 	return humans
 }
+
+func (HumanService) InsertHuman(human *model.Human) {
+}
