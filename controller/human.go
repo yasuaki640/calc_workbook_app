@@ -2,6 +2,7 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/yasuaki640/go-crud/model"
 	"github.com/yasuaki640/go-crud/service"
 	"net/http"
 )
@@ -17,4 +18,5 @@ func HumanList(c *gin.Context) {
 }
 
 func HumanAdd(c *gin.Context) {
+	human := model.Human{}
 }
