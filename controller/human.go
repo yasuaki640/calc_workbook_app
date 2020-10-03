@@ -9,7 +9,7 @@ import (
 func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
 	humanList := humanService.GetHumans()
-	c.HTML(http.StatusOK, "index.tmpl", gin.H{
+	c.HTML(http.StatusOK, "index.html", gin.H{
 		"message":   "success",
 		"humanList": humanList,
 	},
