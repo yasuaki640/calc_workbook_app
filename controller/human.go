@@ -12,6 +12,6 @@ func HumanList(c *gin.Context) {
 	c.HTML(http.StatusOK, "index.html", gin.H{
 		"message":   "success",
 		"humanList": humanList,
-	},
-	)
+	})
+
 }
