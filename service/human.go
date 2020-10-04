@@ -15,6 +15,7 @@ func (HumanService) GetHumans() []model.Human {
 
 func (HumanService) InsertHuman(human *model.Human) error {
 	db := InitDB()
+
 	result := db.Create(&human)
 	if result.Error != nil {
 		return result.Error

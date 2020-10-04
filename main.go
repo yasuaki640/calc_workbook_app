@@ -8,6 +8,7 @@ import (
 func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
+
 	v1 := router.Group("/human/v1")
 	{
 		v1.GET("/list", controller.HumanList)
