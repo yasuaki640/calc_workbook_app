@@ -1,3 +1,16 @@
+DROP TABLE IF EXISTS humans;
+
+CREATE TABLE humans
+(
+    id         integer primary key,
+    name       text,
+    sex        integer,
+    status     text,
+    created_at datetime,
+    updated_at datetime,
+    deleted_at datetime
+);
+
 INSERT INTO humans
 VALUES (1, 'Humika Baba', 2, 'In a relationship', datetime('now'), datetime('now'), NULL);
 INSERT INTO humans

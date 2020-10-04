@@ -5,6 +5,12 @@
     <title>Human relationships management</title>
 </head>
 <body>
-{{ .humanList }}
+{{ range .humanList }}
+    <hr>
+    <p>Name: {{.Name}}</p>
+    <p>Sex: {{.Sex}}</p>
+    <p>Status: {{.Status}}</p>
+    <br>
+{{end}}
 </body>
 </html>
