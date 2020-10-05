@@ -40,6 +40,6 @@ func HumanDelete(c *gin.Context) {
 		c.AbortWithStatus(http.StatusInternalServerError)
 	}
 
-	service := service.HumanService{}
 	err = service.DeleteHuman(id)
+	humanService := service.HumanService{}
 }
