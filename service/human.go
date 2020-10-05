@@ -22,3 +22,6 @@ func (HumanService) InsertHuman(human *model.Human) error {
 	}
 	return nil
 }
+
+func (s HumanService) DeleteHuman(id int) error {
+}
