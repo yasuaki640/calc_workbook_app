@@ -5,6 +5,7 @@ import (
 	"github.com/yasuaki640/go-crud/model"
 	"github.com/yasuaki640/go-crud/service"
 	"net/http"
+	"strconv"
 )
 
 func HumanList(c *gin.Context) {
@@ -34,4 +35,5 @@ func HumanAdd(c *gin.Context) {
 func HumanDelete(c *gin.Context) {
 	strId := c.Param("id")
 
+	id, err := strconv.Atoi(strId)
 }
