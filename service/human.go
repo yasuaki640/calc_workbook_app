@@ -22,3 +22,13 @@ func (HumanService) InsertHuman(human *model.Human) error {
 	}
 	return nil
 }
+
+func (s HumanService) DeleteHuman(id int) error {
+	db := InitDB()
+
+	result := db.Delete(&model.Human{}, id)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
+}

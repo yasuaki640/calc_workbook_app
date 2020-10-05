@@ -5,6 +5,7 @@ import (
 	"github.com/yasuaki640/go-crud/model"
 	"github.com/yasuaki640/go-crud/service"
 	"net/http"
+	"strconv"
 )
 
 func HumanList(c *gin.Context) {
@@ -26,6 +27,21 @@ func HumanAdd(c *gin.Context) {
 	}
 	humanService := service.HumanService{}
 	err = humanService.InsertHuman(&human)
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+	}
+}
+
+func HumanDelete(c *gin.Context) {
+	strId := c.Param("id")
+
+	id, err := strconv.Atoi(strId)
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+	}
+
+	humanService := service.HumanService{}
+	err = humanService.DeleteHuman(id)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
 	}
