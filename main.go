@@ -13,7 +13,7 @@ func main() {
 	{
 		v1.GET("/list", controller.HumanList)
 		v1.POST("/add", controller.HumanAdd)
-		v1.DELETE("/delete", controller.HumanDelete)
+		v1.DELETE("/delete/:id", controller.HumanDelete)
 	}
 
 	router.Run(":8000")
