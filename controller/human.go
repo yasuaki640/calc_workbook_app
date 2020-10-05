@@ -30,3 +30,6 @@ func HumanAdd(c *gin.Context) {
 		c.AbortWithStatus(http.StatusInternalServerError)
 	}
 }
+
+func HumanDelete(c *gin.Context) {
+}
