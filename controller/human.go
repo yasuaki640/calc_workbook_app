@@ -36,4 +36,7 @@ func HumanDelete(c *gin.Context) {
 	strId := c.Param("id")
 
 	id, err := strconv.Atoi(strId)
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+	}
 }
