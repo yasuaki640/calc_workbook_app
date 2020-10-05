@@ -32,4 +32,5 @@ func HumanAdd(c *gin.Context) {
 }
 
 func HumanDelete(c *gin.Context) {
+	id := c.Param("id")
 }
