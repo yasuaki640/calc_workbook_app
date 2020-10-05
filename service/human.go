@@ -30,4 +30,5 @@ func (s HumanService) DeleteHuman(id int) error {
 	if result.Error != nil {
 		return result.Error
 	}
+	return nil
 }
