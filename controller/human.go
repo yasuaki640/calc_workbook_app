@@ -10,6 +10,7 @@ import (
 
 func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
+
 	humanList := humanService.GetHumans()
 	c.HTML(http.StatusOK, "index.html", gin.H{
 		"message":   "success",
@@ -20,11 +21,13 @@ func HumanList(c *gin.Context) {
 
 func HumanAdd(c *gin.Context) {
 	human := model.Human{}
+
 	err := c.Bind(&human)
 	if err != nil {
 		c.AbortWithStatus(http.StatusBadRequest)
 		return
 	}
+
 	humanService := service.HumanService{}
 	err = humanService.InsertHuman(&human)
 	if err != nil {
