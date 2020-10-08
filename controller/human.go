@@ -34,6 +34,7 @@ func HumanUpdate(c *gin.Context) {
 	}
 
 	humanService := service.HumanService{}
+	err = humanService.UpdateHuman(&human)
 }
 
 func HumanList(c *gin.Context) {

@@ -32,3 +32,7 @@ func (s HumanService) DeleteHuman(id int) error {
 	}
 	return nil
 }
+
+func (s HumanService) UpdateHuman(h *model.Human) error {
+	
+}
