@@ -24,6 +24,9 @@ func HumanAdd(c *gin.Context) {
 	}
 }
 
+func HumanUpdate(c *gin.Context) {
+}
+
 func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
 
