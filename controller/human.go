@@ -8,17 +8,6 @@ import (
 	"strconv"
 )
 
-func HumanList(c *gin.Context) {
-	humanService := service.HumanService{}
-
-	humanList := humanService.GetHumans()
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"message":   "success",
-		"humanList": humanList,
-	})
-
-}
-
 func HumanAdd(c *gin.Context) {
 	human := model.Human{}
 
@@ -33,6 +22,17 @@ func HumanAdd(c *gin.Context) {
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
 	}
+}
+
+func HumanList(c *gin.Context) {
+	humanService := service.HumanService{}
+
+	humanList := humanService.GetHumans()
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"message":   "success",
+		"humanList": humanList,
+	})
+
 }
 
 func HumanDelete(c *gin.Context) {
