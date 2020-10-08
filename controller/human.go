@@ -32,6 +32,8 @@ func HumanUpdate(c *gin.Context) {
 		c.AbortWithStatus(http.StatusBadRequest)
 		return
 	}
+
+	humanService := service.HumanService{}
 }
 
 func HumanList(c *gin.Context) {
