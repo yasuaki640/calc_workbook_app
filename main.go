@@ -13,6 +13,7 @@ func main() {
 	{
 		v1.POST("/add", controller.HumanAdd)
 		v1.GET("/list", controller.HumanList)
+		v1.PUT("/update/:id", controller.HumanUpdate)
 		v1.DELETE("/delete/:id", controller.HumanDelete)
 	}
 
