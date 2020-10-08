@@ -34,5 +34,6 @@ func (s HumanService) DeleteHuman(id int) error {
 }
 
 func (s HumanService) UpdateHuman(h *model.Human) error {
-	
+	db := InitDB()
+
 }
