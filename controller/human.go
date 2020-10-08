@@ -25,6 +25,7 @@ func HumanAdd(c *gin.Context) {
 }
 
 func HumanUpdate(c *gin.Context) {
+	human := model.Human{}
 }
 
 func HumanList(c *gin.Context) {
