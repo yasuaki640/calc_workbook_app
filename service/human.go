@@ -40,4 +40,5 @@ func (s HumanService) UpdateHuman(h *model.Human) error {
 	if result.Error != nil {
 		return result.Error
 	}
+	return nil
 }
