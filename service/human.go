@@ -37,4 +37,7 @@ func (s HumanService) UpdateHuman(h *model.Human) error {
 	db := InitDB()
 
 	result := db.Updates(h)
+	if result.Error != nil {
+		return result.Error
+	}
 }
