@@ -35,6 +35,9 @@ func HumanUpdate(c *gin.Context) {
 
 	humanService := service.HumanService{}
 	err = humanService.UpdateHuman(&human)
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+	}
 }
 
 func HumanList(c *gin.Context) {
