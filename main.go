@@ -11,8 +11,9 @@ func main() {
 
 	v1 := router.Group("/human/v1")
 	{
-		v1.GET("/list", controller.HumanList)
 		v1.POST("/add", controller.HumanAdd)
+		v1.GET("/list", controller.HumanList)
+		v1.PUT("/update", controller.HumanUpdate)
 		v1.DELETE("/delete/:id", controller.HumanDelete)
 	}
 

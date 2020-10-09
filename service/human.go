@@ -32,3 +32,13 @@ func (s HumanService) DeleteHuman(id int) error {
 	}
 	return nil
 }
+
+func (s HumanService) UpdateHuman(h *model.Human) error {
+	db := InitDB()
+
+	result := db.Updates(h)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
+}
