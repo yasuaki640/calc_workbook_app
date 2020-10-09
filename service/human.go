@@ -6,13 +6,6 @@ import (
 
 type HumanService struct{}
 
-func (HumanService) GetHumans() []model.Human {
-	db := InitDB()
-	humans := make([]model.Human, 0)
-	db.Find(&humans)
-	return humans
-}
-
 func (HumanService) InsertHuman(human *model.Human) error {
 	db := InitDB()
 
@@ -23,20 +16,27 @@ func (HumanService) InsertHuman(human *model.Human) error {
 	return nil
 }
 
-func (s HumanService) DeleteHuman(id int) error {
+func (HumanService) GetHumans() []model.Human {
 	db := InitDB()
-
-	result := db.Delete(&model.Human{}, id)
-	if result.Error != nil {
-		return result.Error
-	}
-	return nil
+	humans := make([]model.Human, 0)
+	db.Find(&humans)
+	return humans
 }
 
 func (s HumanService) UpdateHuman(h *model.Human) error {
 	db := InitDB()
 
 	result := db.Updates(h)
+	if result.Error != nil {
+		return result.Error
+	}
+	return nil
+}
+
+func (s HumanService) DeleteHuman(id int) error {
+	db := InitDB()
+
+	result := db.Delete(&model.Human{}, id)
 	if result.Error != nil {
 		return result.Error
 	}
