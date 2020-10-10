@@ -18,6 +18,7 @@ func (HumanService) InsertHuman(human *model.Human) error {
 
 func (HumanService) GetHumans() []model.Human {
 	db := InitDB()
+
 	humans := make([]model.Human, 0)
 	db.Find(&humans)
 	return humans
