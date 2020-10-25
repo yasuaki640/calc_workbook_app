@@ -18,5 +18,4 @@ func main() {
 	}
 
 	router.Run(":8000")
-
 }
