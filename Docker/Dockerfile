@@ -8,3 +8,5 @@ RUN apk add --no-cache \
     && go get github.com/pilu/fresh
 
 EXPOSE 8000
+
+CMD["fresh"]
