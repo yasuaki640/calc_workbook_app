@@ -6,3 +6,5 @@ RUN apk add --no-cache \
         alpine-sdk \
         git \
     && go get github.com/pilu/fresh
+
+EXPOSE 8000
