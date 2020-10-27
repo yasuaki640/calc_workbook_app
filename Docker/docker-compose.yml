@@ -5,4 +5,4 @@ services:
     volumes:
       - ../src:/go/src/app
     ports:
-    - "8000:8000"
+      - "8000:8000"

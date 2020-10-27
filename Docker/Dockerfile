@@ -7,6 +7,6 @@ RUN apk add --no-cache \
         git \
     && go get github.com/pilu/fresh
 
-EXPOSE 8000
+EXPOSE 8080
 
 CMD["fresh"]

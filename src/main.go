@@ -17,5 +17,5 @@ func main() {
 		v1.DELETE("/delete/:id", controller.HumanDelete)
 	}
 
-	router.Run(":8000")
+	router.Run(":8080")
 }
