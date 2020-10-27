@@ -1,6 +1,7 @@
 FROM golang:1.15-alpine3.12
 
 WORKDIR /go/src/app
+
 ENV GO111MODULE=on
 
 RUN apk add --no-cache \
@@ -10,4 +11,4 @@ RUN apk add --no-cache \
 
 EXPOSE 8080
 
-CMD["fresh"]
+CMD ["fresh"]
