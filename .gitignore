@@ -16,4 +16,7 @@
 
 src/go.sum
 sqlite3/
+
 .idea/
+
+tmp/
