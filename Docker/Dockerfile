@@ -9,9 +9,10 @@ RUN apk add --no-cache \
         git \
     && go get github.com/pilu/fresh \
     && curl -L https://github.com/golang-migrate/migrate/releases/download/v4.13.0/migrate.linux-amd64.tar.gz | tar xvz \
-    && mv migrate.linux-amd64 /usr/bin \
-    && cd /usr/bin \
-    && ln -s migrate.linux-amd64 migrate
+    && ln -s migrate.linux-amd64 migrate \
+    && mv migrate.linux-amd64 \
+          migrate \
+          /usr/bin
 
 EXPOSE 8000
 
