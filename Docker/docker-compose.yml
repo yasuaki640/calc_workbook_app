@@ -4,6 +4,6 @@ services:
     container_name: go-crud
     build: .
     volumes:
-      - ../src:/go/src/app
+      - ../code:/go/src/app
     ports:
       - "8000:8000"

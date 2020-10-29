@@ -7,7 +7,7 @@ import (
 
 func main() {
 	router := gin.Default()
-	router.LoadHTMLGlob("templates_old/*")
+	router.LoadHTMLGlob("templates/*")
 
 	v1 := router.Group("/human/v1")
 	{
