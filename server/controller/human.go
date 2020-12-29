@@ -43,9 +43,9 @@ func HumanUpdate(c *gin.Context) {
 func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
 
-	humanList := humanService.GetHumans()
+	humans := humanService.GetHumans()
 	c.JSON(http.StatusOK, gin.H{
-		"humanList": humanList,
+		"humans": humans,
 	},
 	)
 
