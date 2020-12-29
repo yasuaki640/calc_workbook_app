@@ -44,10 +44,10 @@ func HumanList(c *gin.Context) {
 	humanService := service.HumanService{}
 
 	humanList := humanService.GetHumans()
-	c.HTML(http.StatusOK, "index.html", gin.H{
-		"message":   "success",
+	c.JSON(http.StatusOK, gin.H{
 		"humanList": humanList,
-	})
+	},
+	)
 
 }
 
