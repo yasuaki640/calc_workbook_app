@@ -9,12 +9,15 @@ func main() {
 	router := gin.Default()
 	router.LoadHTMLGlob("templates/*")
 
-	v1 := router.Group("/human/v1")
+	v1 := router.Group("/v1")
 	{
-		v1.POST("/add", controller.HumanAdd)
-		v1.GET("/list", controller.HumanList)
-		v1.PUT("/update", controller.HumanUpdate)
-		v1.DELETE("/delete/:id", controller.HumanDelete)
+		humans := v1.Group("/humans")
+		{
+			humans.POST("", controller.HumanAdd)
+			humans.GET("", controller.HumanList)
+			humans.PUT("", controller.HumanUpdate)
+			humans.DELETE("/:id", controller.HumanDelete)
+		}
 	}
 
 	router.Run(":8000")
