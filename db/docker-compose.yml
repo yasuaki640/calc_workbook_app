@@ -17,3 +17,12 @@ services:
     restart: always
     ports:
       - "8080:8080"
+
+  app:
+    container_name: go-crud
+    build: .
+    volumes:
+      - ../server:/go/src/app
+    ports:
+      - "8000:8000"
+    tty: true
