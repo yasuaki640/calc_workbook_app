@@ -19,7 +19,7 @@ services:
       - "8080:8080"
 
   server:
-    container_name: go-crud
+    container_name: go-crud-server
     build:
       context: "./server"
     volumes:
