@@ -20,9 +20,10 @@ services:
 
   app:
     container_name: go-crud
-    build: .
+    build:
+      context: ./server
     volumes:
-      - ../server:/go/src/app
+      - ./server:/go/src/app
     ports:
       - "8000:8000"
     tty: true
