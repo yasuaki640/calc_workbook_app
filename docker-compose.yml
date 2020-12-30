@@ -18,10 +18,10 @@ services:
     ports:
       - "8080:8080"
 
-  app:
+  server:
     container_name: go-crud
     build:
-      context: ./server
+      context: "./server"
     volumes:
       - ./server:/go/src/app
     ports:
