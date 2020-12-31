@@ -22,8 +22,10 @@ services:
     container_name: go-crud-server
     build:
       context: "./server"
+      target: base
+    command: "air -c .air.toml"
     volumes:
-      - ./server:/go/src/app
+      - ./server:/app/go/base
     ports:
       - "8000:8000"
     tty: true
