@@ -10,6 +10,7 @@ RUN apk add --no-cache \
         git
 RUN go mod download
 RUN go get -u github.com/cosmtrek/air
+RUN go get -u github.com/go-delve/delve/cmd/dlv
 
 COPY . .
 
