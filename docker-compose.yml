@@ -19,9 +19,9 @@ services:
   server:
     container_name: go-crud-server
     build:
-      context: "./server"
+      context: ./server
       target: base
-    command: "air -c .air.toml"
+    command: air -c .air.toml
     volumes:
       - ./server:/app/go/base
     ports:
@@ -35,7 +35,7 @@ services:
   client:
     container_name: go-crud-client
     build:
-      context: "./client"
+      context: ./client
       dockerfile: Dockerfile
     volumes:
       - ./client:/usr/src/app
