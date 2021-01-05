@@ -6,8 +6,8 @@ COPY go.mod .
 COPY go.sum .
 
 RUN apk add --no-cache \
-        alpine-sdk \
-        git
+    alpine-sdk \
+    git
 RUN go mod download
 RUN go get -u github.com/cosmtrek/air
 RUN go get -u github.com/go-delve/delve/cmd/dlv
