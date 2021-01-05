@@ -12,8 +12,13 @@ RUN go mod download
 RUN go get -u github.com/cosmtrek/air
 RUN go get -u github.com/go-delve/delve/cmd/dlv
 
-COPY . .
+# create link for migration tool
+RUN curl -L https://github.com/golang-migrate/migrate/releases/download/v4.13.0/migrate.linux-amd64.tar.gz | tar xvz \
+    && mv migrate.linux-amd64 /usr/bin \
+    && cd /usr/bin \
+    && ln -s migrate.linux-amd64 migrate
 
+COPY . .
 
 FROM golang:1.15-alpine as builder
 
