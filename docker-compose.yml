@@ -2,13 +2,13 @@ version: "3.8"
 services:
   db:
     image: postgres:13.1
-    container_name: postgres-container
+    container_name: postgres_container
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=go-crud
+      - POSTGRES_USER=go_crud
+      - POSTGRES_PASSWORD=go_crud
+      - POSTGRES_DB=go_crud
       - DATABASE_HOST=localhost
 
   adminer:
@@ -17,7 +17,7 @@ services:
       - "8080:8080"
 
   server:
-    container_name: go-crud-server
+    container_name: go_crud_server
     build:
       context: ./server
       target: base
@@ -33,7 +33,7 @@ services:
       - SYS_PTRACE
 
   client:
-    container_name: go-crud-client
+    container_name: go_crud_client
     build:
       context: ./client
       dockerfile: Dockerfile
