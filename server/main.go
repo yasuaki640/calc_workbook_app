@@ -10,13 +10,10 @@ func main() {
 
 	v1 := router.Group("/v1")
 	{
-		humans := v1.Group("/humans")
-		{
-			humans.POST("", controller.HumanAdd)
-			humans.GET("", controller.HumanList)
-			humans.PUT("", controller.HumanUpdate)
-			humans.DELETE("/:id", controller.HumanDelete)
-		}
+		v1.POST("/humans", controller.HumanAdd)
+		v1.GET("/humans", controller.HumanList)
+		v1.PUT("/humans", controller.HumanUpdate)
+		v1.DELETE("/humans/:id", controller.HumanDelete)
 	}
 
 	router.Run(":8000")
