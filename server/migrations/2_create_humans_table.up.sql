@@ -8,7 +8,7 @@ CREATE TABLE go_crud.humans
     description  TEXT,
     favorability SMALLINT     DEFAULT 0 NOT NULL,
     created_at   TIMESTAMP NOT NULL,
-    update_at    TIMESTAMP,
+    updated_at    TIMESTAMP,
     deleted_at   TIMESTAMP
 );
 
