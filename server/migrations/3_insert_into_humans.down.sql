@@ -1,1 +1,1 @@
-DELETE FROM humans;
+DELETE FROM go_crud.humans;
