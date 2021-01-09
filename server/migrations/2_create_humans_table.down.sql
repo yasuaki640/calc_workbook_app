@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS humans;
+DROP TABLE IF EXISTS go_crud.humans;

@@ -1,4 +1,4 @@
-CREATE TABLE humans
+CREATE TABLE go_crud.humans
 (
     id           serial
         constraint humans_pk primary key,
@@ -11,3 +11,6 @@ CREATE TABLE humans
     update_at    TIMESTAMP,
     deleted_at   TIMESTAMP
 );
+
+alter table go_crud.humans
+    owner to go_crud;
