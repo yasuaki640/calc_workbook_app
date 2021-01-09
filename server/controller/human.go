@@ -21,6 +21,7 @@ func HumanAdd(c *gin.Context) {
 	err = humanService.InsertHuman(&human)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
+		return
 	}
 }
 
@@ -37,6 +38,7 @@ func HumanUpdate(c *gin.Context) {
 	err = humanService.UpdateHuman(&human)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
+		return
 	}
 }
 
@@ -57,11 +59,13 @@ func HumanDelete(c *gin.Context) {
 	id, err := strconv.Atoi(strId)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
+		return
 	}
 
 	humanService := service.HumanService{}
 	err = humanService.DeleteHuman(id)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
+		return
 	}
 }
