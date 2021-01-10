@@ -1,3 +1,5 @@
+BEGIN;
+
 CREATE TABLE go_crud.humans
 (
     id           serial
@@ -11,6 +13,7 @@ CREATE TABLE go_crud.humans
     updated_at    TIMESTAMP,
     deleted_at   TIMESTAMP
 );
-
 alter table go_crud.humans
     owner to go_crud;
+
+COMMIT;
