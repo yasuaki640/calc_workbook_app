@@ -14,6 +14,8 @@ func main() {
 		v1.GET("/humans", controller.HumanList)
 		v1.PUT("/humans", controller.HumanUpdate)
 		v1.DELETE("/humans/:id", controller.HumanDelete)
+
+		v1.GET("/posts", controller.PostList)
 	}
 
 	router.Run(":8000")
