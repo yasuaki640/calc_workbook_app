@@ -1,0 +1,219 @@
+openapi: "3.0.3"
+
+info:
+  title: "Human picture book API"
+  description: |
+    # Features
+    - Get humans info
+    - Post humans info, article with picture.
+    - Put humans info, article with picture.
+    - Delete humans info, article with picture.
+  contact:
+    name: "Yasuaki Watanabe"
+    email: "yasuaki640@gmail.com"
+  version: "1.0.0"
+  license:
+    name: "MIT License"
+    url: "https://opensource.org/licenses/MIT"
+
+servers:
+  - url: "http://localhost/{version}"
+    description: "Development Environment"
+    variables:
+      version:
+        description: "API version"
+        enum: ["v1"]
+        default: "v1"
+
+paths:
+  "/humans":
+    get:
+      summary: "Get all humans"
+      description: "Get all humans with pictures"
+      tags: ["humans"]
+      deprecated: false
+      responses:
+        "200":
+          description: "Success operation"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+    post:
+      summary: "Create a human"
+      description: "Create a human with specified info and a picture"
+      tags: ["humans"]
+      deprecated: false
+      responses:
+        "200":
+          description: "Success operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID: { type: number, example: 1 }
+                  CreatedAt:
+                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+                  UpdatedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  DeletedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  Name: { type: string, example: "堀北真希" }
+                  Sex: { type: number, example: 2 }
+                  Birthday:
+                    { type: string, format: date-time, example: "堀北真希" }
+                  Description: { type: string, example: "東京都出身..." }
+                  Favorability:
+                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+      requestBody:
+        description: "Info of humans to be registered"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name: { type: string, example: "堀北真希" }
+                Sex: { type: number, example: "2" }
+                Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
+                Description: { type: string, example: "東京都出身..." }
+                Favorability: { type: number, example: "8" }
+
+  "/humans/{id}":
+    get:
+      summary: "Get a human"
+      description: "Get a human has specified ID with pictures"
+      tags: ["humans"]
+      deprecated: false
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema: { type: number }
+          example: "1,2,3"
+      responses:
+        "200":
+          description: "Success operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID: { type: number, example: 1 }
+                  CreatedAt:
+                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+                  UpdatedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  DeletedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  Name: { type: string, example: "堀北真希" }
+                  Sex: { type: number, example: 2 }
+                  Birthday:
+                    { type: string, format: date-time, example: "堀北真希" }
+                  Description: { type: string, example: "東京都出身..." }
+                  Favorability:
+                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+    put:
+      summary: "Update a human"
+      description: "Update a human with specified info and a picture"
+      tags: ["humans"]
+      deprecated: false
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema: { type: number }
+          example: "1,2,3"
+      requestBody:
+        description: "Info of humans to be registered"
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name: { type: string, example: "堀北真希" }
+                Sex: { type: number, example: "2" }
+                Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
+                Description: { type: string, example: "東京都出身..." }
+                Favorability: { type: number, example: "8" }
+      responses:
+        "200":
+          description: "Success operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ID: { type: number, example: 1 }
+                  CreatedAt:
+                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+                  UpdatedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  DeletedAt:
+                    {
+                      type: string,
+                      format: date-time,
+                      example: "1996-06-18T00:00:00Z",
+                    }
+                  Name: { type: string, example: "堀北真希" }
+                  Sex: { type: number, example: 2 }
+                  Birthday:
+                    { type: string, format: date-time, example: "堀北真希" }
+                  Description: { type: string, example: "東京都出身..." }
+                  Favorability:
+                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+    delete:
+      summary: "Delete a human"
+      description: "Delete a human with specified info and a picture"
+      tags: ["humans"]
+      deprecated: false
+      parameters:
+        - name: ID
+          in: path
+          required: true
+          schema: { type: number }
+          example: "1,2,3"
+      responses:
+        "200":
+          description: "Success operation"
+        "400":
+          description: "Bad request"
+        "500":
+          description: "Internal server error"
+security: []
+
+components: {}
