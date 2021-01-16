@@ -31,7 +31,6 @@ paths:
       summary: "Get all humans"
       description: "Get all humans with pictures"
       tags: [ "humans" ]
-      deprecated: false
       responses:
         "200":
           description: "Success operation"
@@ -43,7 +42,6 @@ paths:
       summary: "Create a human"
       description: "Create a human with specified info and a picture"
       tags: [ "humans" ]
-      deprecated: false
       responses:
         "200":
           description: "Success operation"
@@ -156,7 +154,6 @@ paths:
       summary: "Update a human"
       description: "Update a human with specified info and a picture"
       tags: [ "humans" ]
-      deprecated: false
       parameters:
         - name: ID
           in: path
@@ -214,7 +211,6 @@ paths:
       summary: "Delete a human"
       description: "Delete a human with specified info and a picture"
       tags: [ "humans" ]
-      deprecated: false
       parameters:
         - name: ID
           in: path
