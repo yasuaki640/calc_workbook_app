@@ -144,18 +144,6 @@ components:
         Birthday: { type: string, format: date-time, example: "堀北真希" }
         Description: { type: string, example: "東京都出身..." }
         Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
-        ClientError:
-          type: object
-          properties:
-            message: { type: string }
-            errors:
-              type: array
-              items:
-                type: object
-                properties:
-                  resource: { type: string }
-                  field: { type: string }
-                  code: { type: string }
     HumanRequest:
       type: object
       properties:
