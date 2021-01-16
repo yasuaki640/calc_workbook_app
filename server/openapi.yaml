@@ -41,7 +41,7 @@ paths:
         "400":
           $ref: "#/components/responses/400-BadRequest"
         "500":
-          description: "Internal server error"
+          $ref: "#/components/responses/500-ServerError"
     post:
       summary: "Create a human"
       description: "Create a human with specified info and a picture"
@@ -56,13 +56,7 @@ paths:
         "400":
           $ref: "#/components/responses/400-BadRequest"
         "500":
-          description: "Internal server error"
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message: { type: string }
+          $ref: "#/components/responses/500-ServerError"
       requestBody:
         description: "Info of humans to be registered"
         required: true
@@ -70,7 +64,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/HumanRequest"
-
   "/humans/{id}":
     parameters:
       - $ref: "#/components/parameters/HumanID"
@@ -89,7 +82,7 @@ paths:
         "400":
           $ref: "#/components/responses/400-BadRequest"
         "500":
-          description: "Internal server error"
+          $ref: "#/components/responses/500-ServerError"
     put:
       summary: "Update a human"
       description: "Update a human with specified info and a picture"
@@ -112,7 +105,7 @@ paths:
         "400":
           $ref: "#/components/responses/400-BadRequest"
         "500":
-          description: "Internal server error"
+          $ref: "#/components/responses/500-ServerError"
     delete:
       summary: "Delete a human"
       description: "Delete a human with specified info and a picture"
@@ -121,10 +114,16 @@ paths:
       responses:
         "200":
           description: "Success operation"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string,example: "Deleted a human ID: 1" }
         "400":
           $ref: "#/components/responses/400-BadRequest"
         "500":
-          description: "Internal server error"
+          $ref: "#/components/responses/500-ServerError"
 security: [ ]
 
 components:
@@ -134,11 +133,11 @@ components:
       properties:
         ID: { type: number, example: 1 }
         CreatedAt:
-          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+          { type: string, format: date-time }
         UpdatedAt:
-          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+          { type: string, format: date-time }
         DeletedAt:
-          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+          { type: string, format: date-time }
         Name: { type: string, example: "堀北真希" }
         Sex: { type: number, example: 2 }
         Birthday: { type: string, format: date-time, example: "堀北真希" }
@@ -155,16 +154,24 @@ components:
     ClientError:
       type: object
       properties:
-        message: { type: string }
+        message: { type: string, example: "Invalid value error" }
         errors:
           type: array
           items:
             type: object
             properties:
-              resource: { type: string }
-              field: { type: string }
-              code: { type: string }
+              resource: { type: string,example: "Human" }
+              field: { type: string,example: "ID" }
+              code: { type: string, example: "invalid_value" }
   responses:
+    500-ServerError:
+      description: "Internal server error"
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message: { type: string ,example: "Unexpected error occured" }
     400-BadRequest:
       description: "Bad request"
       content:
