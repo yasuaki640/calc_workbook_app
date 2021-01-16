@@ -76,6 +76,20 @@ paths:
                     { type: integer, minimum: 0, maximum: 10, example: "8" }
         "400":
           description: "Bad request"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string }
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        resource: { type: string }
+                        field: { type: string }
+                        code: { type: string }
         "500":
           description: "Internal server error"
       requestBody:
