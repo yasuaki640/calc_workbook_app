@@ -1,5 +1,9 @@
 openapi: "3.0.3"
 
+tags:
+  - name: humans
+    description: Human info operation
+
 info:
   title: "Human picture book API"
   description: |
@@ -35,7 +39,7 @@ paths:
         "200":
           description: "Success operation"
         "400":
-          description: "Bad request"
+          $ref: "#/components/responses/400-BadRequest"
         "500":
           description: "Internal server error"
     post:
@@ -48,182 +52,142 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  ID: { type: number, example: 1 }
-                  CreatedAt:
-                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
-                  UpdatedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  DeletedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  Name: { type: string, example: "堀北真希" }
-                  Sex: { type: number, example: 2 }
-                  Birthday:
-                    { type: string, format: date-time, example: "堀北真希" }
-                  Description: { type: string, example: "東京都出身..." }
-                  Favorability:
-                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+                $ref: "#/components/schemas/Human"
         "400":
-          description: "Bad request"
+          $ref: "#/components/responses/400-BadRequest"
+        "500":
+          description: "Internal server error"
           content:
             application/json:
               schema:
                 type: object
                 properties:
                   message: { type: string }
-                  errors:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        resource: { type: string }
-                        field: { type: string }
-                        code: { type: string }
-        "500":
-          description: "Internal server error"
       requestBody:
         description: "Info of humans to be registered"
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                Name: { type: string, example: "堀北真希" }
-                Sex: { type: number, example: "2" }
-                Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
-                Description: { type: string, example: "東京都出身..." }
-                Favorability: { type: number, example: "8" }
+              $ref: "#/components/schemas/HumanRequest"
 
   "/humans/{id}":
+    parameters:
+      - $ref: "#/components/parameters/HumanID"
     get:
       summary: "Get a human"
       description: "Get a human has specified ID with pictures"
       tags: [ "humans" ]
-      deprecated: false
-      parameters:
-        - name: ID
-          in: path
-          required: true
-          schema: { type: number }
-          example: "1,2,3"
+
       responses:
         "200":
           description: "Success operation"
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  ID: { type: number, example: 1 }
-                  CreatedAt:
-                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
-                  UpdatedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  DeletedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  Name: { type: string, example: "堀北真希" }
-                  Sex: { type: number, example: 2 }
-                  Birthday:
-                    { type: string, format: date-time, example: "堀北真希" }
-                  Description: { type: string, example: "東京都出身..." }
-                  Favorability:
-                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+                $ref: "#/components/schemas/Human"
         "400":
-          description: "Bad request"
+          $ref: "#/components/responses/400-BadRequest"
         "500":
           description: "Internal server error"
     put:
       summary: "Update a human"
       description: "Update a human with specified info and a picture"
       tags: [ "humans" ]
-      parameters:
-        - name: ID
-          in: path
-          required: true
-          schema: { type: number }
-          example: "1,2,3"
+
       requestBody:
         description: "Info of humans to be registered"
         required: true
         content:
           application/json:
             schema:
-              type: object
-              properties:
-                Name: { type: string, example: "堀北真希" }
-                Sex: { type: number, example: "2" }
-                Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
-                Description: { type: string, example: "東京都出身..." }
-                Favorability: { type: number, example: "8" }
+              $ref: "#/components/schemas/HumanRequest"
       responses:
         "200":
           description: "Success operation"
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  ID: { type: number, example: 1 }
-                  CreatedAt:
-                    { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
-                  UpdatedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  DeletedAt:
-                    {
-                      type: string,
-                      format: date-time,
-                      example: "1996-06-18T00:00:00Z",
-                    }
-                  Name: { type: string, example: "堀北真希" }
-                  Sex: { type: number, example: 2 }
-                  Birthday:
-                    { type: string, format: date-time, example: "堀北真希" }
-                  Description: { type: string, example: "東京都出身..." }
-                  Favorability:
-                    { type: integer, minimum: 0, maximum: 10, example: "8" }
+                $ref: "#/components/schemas/Human"
         "400":
-          description: "Bad request"
+          $ref: "#/components/responses/400-BadRequest"
         "500":
           description: "Internal server error"
     delete:
       summary: "Delete a human"
       description: "Delete a human with specified info and a picture"
       tags: [ "humans" ]
-      parameters:
-        - name: ID
-          in: path
-          required: true
-          schema: { type: number }
-          example: "1,2,3"
+
       responses:
         "200":
           description: "Success operation"
         "400":
-          description: "Bad request"
+          $ref: "#/components/responses/400-BadRequest"
         "500":
           description: "Internal server error"
 security: [ ]
 
-components: { }
+components:
+  schemas:
+    Human:
+      type: object
+      properties:
+        ID: { type: number, example: 1 }
+        CreatedAt:
+          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+        UpdatedAt:
+          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+        DeletedAt:
+          { type: string, format: date-time, example: "1996-06-18T00:00:00Z" }
+        Name: { type: string, example: "堀北真希" }
+        Sex: { type: number, example: 2 }
+        Birthday: { type: string, format: date-time, example: "堀北真希" }
+        Description: { type: string, example: "東京都出身..." }
+        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
+        ClientError:
+          type: object
+          properties:
+            message: { type: string }
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  resource: { type: string }
+                  field: { type: string }
+                  code: { type: string }
+    HumanRequest:
+      type: object
+      properties:
+        Name: { type: string, example: "堀北真希" }
+        Sex: { type: number, example: "2" }
+        Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
+        Description: { type: string, example: "東京都出身..." }
+        Favorability: { type: number, example: "8" }
+    ClientError:
+      type: object
+      properties:
+        message: { type: string }
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              resource: { type: string }
+              field: { type: string }
+              code: { type: string }
+  responses:
+    400-BadRequest:
+      description: "Bad request"
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ClientError"
+
+  parameters:
+    HumanID:
+      name: ID
+      in: path
+      required: true
+      schema: { type: number }
+      example: "1"
