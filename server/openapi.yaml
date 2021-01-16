@@ -152,17 +152,17 @@ components:
       type: object
       properties:
         ID: { type: number, example: 1 }
+        Name: { type: string, example: "堀北真希" }
+        Sex: { type: number, example: 2 }
+        Birthday: { type: string, format: date-time, example: "堀北真希" }
+        Description: { type: string, example: "東京都出身..." }
+        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
         CreatedAt:
           { type: string, format: date-time }
         UpdatedAt:
           { type: string, format: date-time }
         DeletedAt:
           { type: string, format: date-time }
-        Name: { type: string, example: "堀北真希" }
-        Sex: { type: number, example: 2 }
-        Birthday: { type: string, format: date-time, example: "堀北真希" }
-        Description: { type: string, example: "東京都出身..." }
-        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
     HumanRequest:
       type: object
       properties:
@@ -175,17 +175,17 @@ components:
       type: object
       properties:
         ID: { type: number, example: 1 }
+        Name: { type: string, example: "堀北真希" }
+        Sex: { type: number, example: 2 }
+        Birthday: { type: string, format: date-time, example: "堀北真希" }
+        Description: { type: string, example: "東京都出身..." }
+        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
         CreatedAt:
           { type: string, format: date-time }
         UpdatedAt:
           { type: string, format: date-time }
         DeletedAt:
           { type: string, format: date-time }
-        Name: { type: string, example: "堀北真希" }
-        Sex: { type: number, example: 2 }
-        Birthday: { type: string, format: date-time, example: "堀北真希" }
-        Description: { type: string, example: "東京都出身..." }
-        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
     ClientError:
       type: object
       properties:
