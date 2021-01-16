@@ -3,15 +3,17 @@ openapi: "3.0.3"
 tags:
   - name: humans
     description: Human info operation
+  - name: posts
+    description: Post info operation
 
 info:
   title: "Human picture book API"
   description: |
     # Features
     - Get humans info
-    - Post humans info, article with picture.
-    - Put humans info, article with picture.
-    - Delete humans info, article with picture.
+    - Post humans info, post with picture.
+    - Put humans info, post with picture.
+    - Delete humans info, post with picture.
   contact:
     name: "Yasuaki Watanabe"
     email: "yasuaki640@gmail.com"
@@ -64,7 +66,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/HumanRequest"
-  "/humans/{id}":
+  "/humans/{HumanID}":
     parameters:
       - $ref: "#/components/parameters/HumanID"
     get:
@@ -124,6 +126,24 @@ paths:
           $ref: "#/components/responses/400-BadRequest"
         "500":
           $ref: "#/components/responses/500-ServerError"
+  "/humans/{HumanID}/posts":
+    parameters:
+      - $ref: "#/components/parameters/HumanID"
+    get:
+      summary: "Get posts linked specified human ID"
+      description: "Get posts linked specified human ID with pictures"
+      tags: [ "humans" ]
+      responses:
+        "200":
+          description: "Success operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Human"
+        "400":
+          $ref: "#/components/responses/400-BadRequest"
+        "500":
+          $ref: "#/components/responses/500-ServerError"
 security: [ ]
 
 components:
@@ -151,6 +171,21 @@ components:
         Birthday: { type: string, example: "1996-06-18T00:00:00Z" }
         Description: { type: string, example: "東京都出身..." }
         Favorability: { type: number, example: "8" }
+    Posts:
+      type: object
+      properties:
+        ID: { type: number, example: 1 }
+        CreatedAt:
+          { type: string, format: date-time }
+        UpdatedAt:
+          { type: string, format: date-time }
+        DeletedAt:
+          { type: string, format: date-time }
+        Name: { type: string, example: "堀北真希" }
+        Sex: { type: number, example: 2 }
+        Birthday: { type: string, format: date-time, example: "堀北真希" }
+        Description: { type: string, example: "東京都出身..." }
+        Favorability: { type: integer, minimum: 0, maximum: 10, example: "8" }
     ClientError:
       type: object
       properties:
@@ -181,7 +216,13 @@ components:
 
   parameters:
     HumanID:
-      name: ID
+      name: HumanID
+      in: path
+      required: true
+      schema: { type: number }
+      example: "1"
+    PostID:
+      name: PostID
       in: path
       required: true
       schema: { type: number }
