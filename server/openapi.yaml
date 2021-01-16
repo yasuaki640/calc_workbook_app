@@ -71,7 +71,7 @@ paths:
       - $ref: "#/components/parameters/HumanID"
     get:
       summary: "Get a human"
-      description: "Get a human has specified ID with pictures"
+      description: "Get a human has specified ID"
       tags: [ "humans" ]
 
       responses:
