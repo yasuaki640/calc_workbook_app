@@ -22,7 +22,7 @@ servers:
     variables:
       version:
         description: "API version"
-        enum: ["v1"]
+        enum: [ "v1" ]
         default: "v1"
 
 paths:
@@ -30,7 +30,7 @@ paths:
     get:
       summary: "Get all humans"
       description: "Get all humans with pictures"
-      tags: ["humans"]
+      tags: [ "humans" ]
       deprecated: false
       responses:
         "200":
@@ -42,7 +42,7 @@ paths:
     post:
       summary: "Create a human"
       description: "Create a human with specified info and a picture"
-      tags: ["humans"]
+      tags: [ "humans" ]
       deprecated: false
       responses:
         "200":
@@ -110,7 +110,7 @@ paths:
     get:
       summary: "Get a human"
       description: "Get a human has specified ID with pictures"
-      tags: ["humans"]
+      tags: [ "humans" ]
       deprecated: false
       parameters:
         - name: ID
@@ -155,7 +155,7 @@ paths:
     put:
       summary: "Update a human"
       description: "Update a human with specified info and a picture"
-      tags: ["humans"]
+      tags: [ "humans" ]
       deprecated: false
       parameters:
         - name: ID
@@ -213,7 +213,7 @@ paths:
     delete:
       summary: "Delete a human"
       description: "Delete a human with specified info and a picture"
-      tags: ["humans"]
+      tags: [ "humans" ]
       deprecated: false
       parameters:
         - name: ID
@@ -228,6 +228,6 @@ paths:
           description: "Bad request"
         "500":
           description: "Internal server error"
-security: []
+security: [ ]
 
-components: {}
+components: { }
